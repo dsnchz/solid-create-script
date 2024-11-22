@@ -1,14 +1,40 @@
 {
-  "name": "template-solidjs-library",
-  "version": "0.0.0",
-  "description": "Template for SolidJS library using tsup for bundling. Configured with Bun, NVM, TypeScript, ESLint, Prettier, Vitest, and GHA",
+  "name": "solid-create-script",
+  "version": "1.0.0",
+  "description": "Solid utility hook to dynamically load an external script.",
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "author": "Daniel Sanchez <dsanc89@icloud.com>",
   "license": "MIT",
-  "homepage": "https://github.com/thedanchez/template-solidjs-library#readme",
+  "homepage": "https://github.com/thedanchez/solid-create-script#readme",
   "bugs": {
-    "url": "https://github.com/thedanchez/template-solidjs-library/issues"
+    "url": "https://github.com/thedanchez/solid-create-script/issues"
   },
+  "exports": {
+    "solid": "./dist/index.jsx",
+    "import": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "browser": {},
+  "typesVersions": {},
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "create",
+    "create-script",
+    "create-script-hook",
+    "hook",
+    "script",
+    "Solid",
+    "SolidJS",
+    "use-script"
+  ],
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",
