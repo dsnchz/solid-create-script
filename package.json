@@ -39,6 +39,9 @@
     "build": "tsup",
     "build:watch": "tsup --watch",
     "dev": "vite",
+    "changeset": "changeset",
+    "update-pkg-version": "changeset version",
+    "release": "changeset publish",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
     "lint": "eslint . --ext .ts,.tsx",
@@ -50,6 +53,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.3",
     "@solidjs/testing-library": "^0.8.10",
     "@testing-library/jest-dom": "^6.5.0",
     "@types/bun": "^1.1.10",

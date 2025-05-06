@@ -1,7 +1,9 @@
 import { createScript } from "../src";
 
 export const App = () => {
-  const script = createScript("https://cdn.plaid.com/link/v2/stable/link-initialize.js", { defer: true });
+  const script = createScript("https://cdn.plaid.com/link/v2/stable/link-initialize.js", {
+    defer: true,
+  });
 
   return (
     <div>

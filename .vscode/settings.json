@@ -3,7 +3,7 @@
     "source.fixAll": "always"
   },
   "editor.formatOnSave": true,
-  "editor.rulers": [120],
+  "editor.rulers": [100],
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true
 }
