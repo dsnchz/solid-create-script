@@ -1,6 +1,6 @@
 {
   "name": "solid-create-script",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Solid utility hook to dynamically load an external script.",
   "type": "module",
   "main": "./dist/index.js",
