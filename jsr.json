@@ -1,0 +1,6 @@
+{
+  "name": "@dschz/solid-create-script",
+  "version": "1.1.0",
+  "license": "MIT",
+  "exports": "./src/index.tsx"
+}

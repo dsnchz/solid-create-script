@@ -4,7 +4,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/solid-create-script.svg?style=for-the-badge)](https://www.npmjs.com/package/solid-create-script) [![Build Status](https://img.shields.io/github/actions/workflow/status/thedanchez/solid-create-script/ci.yaml?branch=main&logo=github&style=for-the-badge)](https://github.com/thedanchez/solid-create-script/actions/workflows/ci.yaml) [![bun](https://img.shields.io/badge/maintained%20with-bun-cc00ff.svg?style=for-the-badge&logo=bun)](https://bun.sh/)
 
-# solid-create-script
+# @dschz/solid-create-script
 
 MIT Licensed
 
@@ -13,10 +13,10 @@ Utility function to dynamically load external scripts in both declarative and im
 ## Installation
 
 ```bash
-npm install solid-js @dschz/load-script solid-create-script
-pnpm install solid-js @dschz/load-script solid-create-script
-yarn install solid-js @dschz/load-script solid-create-script
-bun install solid-js @dschz/load-script solid-create-script
+npm install solid-js @dschz/load-script @dschz/solid-create-script
+pnpm install solid-js @dschz/load-script @dschz/solid-create-script
+yarn install solid-js @dschz/load-script @dschz/solid-create-script
+bun install solid-js @dschz/load-script @dschz/solid-create-script
 ```
 
 > These are **peer dependencies**, so they must be installed manually:
@@ -27,7 +27,7 @@ bun install solid-js @dschz/load-script solid-create-script
 ## Summary
 
 ```ts
-import createScript from "solid-create-script";
+import createScript from "@dschz/solid-create-script";
 ```
 
 ## API Breakdown
@@ -57,7 +57,7 @@ It is useful for:
 
 ```ts
 import { Switch, Match } from "solid-js"
-import createScript from "solid-create-script"
+import createScript from "@dschz/solid-create-script"
 
 const CustomComponent = () => {
   const script = createScript("https://example.com/library.js", { async: true });
