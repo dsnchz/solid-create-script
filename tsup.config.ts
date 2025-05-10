@@ -28,7 +28,7 @@ export default defineConfig((config) => {
 
   const tsupOptions = preset
     .generateTsupOptions(parsedOptions)
-    .map((tsupOption) => ({ name: "solid-create-script", minify: true, ...tsupOption }));
+    .map((tsupOption) => ({ name: "solid-create-script", ...tsupOption }));
 
   return tsupOptions;
 });

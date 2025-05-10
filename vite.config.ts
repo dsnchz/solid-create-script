@@ -1,14 +1,12 @@
-/// <reference types="vitest" />
-/// <reference types="vite/client" />
-
-import { defineConfig } from "vite";
+import { defineConfig as defineViteConfig, mergeConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
-import { configDefaults } from "vitest/config";
+import { configDefaults, defineConfig as defineVitestConfig } from "vitest/config";
 
-const TEST_EXCLUDES = [...configDefaults.exclude, "src/index.tsx"];
+// We exclude the backend directory because we use Bun (not Vitest) to run those tests
+const TEST_EXCLUDES = [...configDefaults.exclude, "src/index.tsx", "playground"];
 const COVERAGE_EXCLUDE = [...TEST_EXCLUDES, "**/*.test.{ts,tsx}"];
 
-export default defineConfig({
+const viteConfig = defineViteConfig({
   plugins: [solidPlugin()],
   server: {
     port: 3000,
@@ -19,6 +17,9 @@ export default defineConfig({
   resolve: {
     conditions: ["development", "browser"],
   },
+});
+
+const vitestConfig = defineVitestConfig({
   test: {
     globals: true,
     environment: "jsdom",
@@ -34,3 +35,5 @@ export default defineConfig({
     },
   },
 });
+
+export default mergeConfig(viteConfig, vitestConfig);
