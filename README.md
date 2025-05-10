@@ -6,51 +6,81 @@
 
 # solid-create-script
 
-Solid utility hook to dynamically load an external script.
+MIT Licensed
 
-### Installation
+Utility function to dynamically load external scripts in both declarative and imperative styles within SolidJS.
+
+## Installation
 
 ```bash
-npm install solid-js solid-create-script
-pnpm add solid-js solid-create-script
-yarn add solid-js solid-create-script
-bun add solid-js solid-create-script
+npm install solid-js @dschz/load-script solid-create-script
+pnpm install solid-js @dschz/load-script solid-create-script
+yarn install solid-js @dschz/load-script solid-create-script
+bun install solid-js @dschz/load-script solid-create-script
 ```
+
+> These are **peer dependencies**, so they must be installed manually:
+>
+> - `solid-js`
+> - `@dschz/load-script`
+
+## Summary
+
+```ts
+import createScript from "solid-create-script";
+```
+
+## API Breakdown
+
+### `createScript`
+
+A lightweight wrapper around `loadScript` with `createResource` that returns a `Resource<HTMLScriptElement>`.
+
+The interface signature is as follows:
+
+```ts
+const createScript = (src: string, options?: LoadScriptOptions, container?: HTMLElement | null)
+```
+
+The three arguments:
+
+- `src`: the script source to download
+- `options`: the options to pass to `loadScript`
+- `container`: the HTMLElement to append the `<script />` to.
+
+It is useful for:
+
+- Conditionally rendering based on script load status
+- Tracking `loading`, `error`, and ready states
 
 ### Usage
 
-```tsx
-const script = createScript("https://some-library.js");
-const script = createScript("https://some-library.js", { async: true, ...scriptAttributes });
-const script = createScript("https://some-library.js", { defer: true, ...scriptAttributes });
-```
+```ts
+import { Switch, Match } from "solid-js"
+import createScript from "solid-create-script"
 
-Under the hood `createScript` makes use of the `createResource` Solid API when loading the desired script at the specified `src`. As such, the result of `createScript` is a `Resource<Event>` object that allows you to inspect when the script has finished loading or returned an error via `script.loading` and `script.error` respectively.
-
-When using `createScript`, here are some points to be aware of:
-
-- The created `<script>` tag will be appeneded to `<head>`.
-- The created `<script>` tag will not be removed from the DOM when a component that uses this hook unmounts. (i.e. we do not make use of `onCleanup` to remove the `<script>` from `<head>`).
-- The hook will ensure no duplicate `<script>` tags referencing the same `src` will be created. Moreover, when multiple components reference the same `src`, they will all point to the same shared resource ensuring consistency within the reactive graph.
-
-### Full Example
-
-```tsx
-import { Switch, Match } from "solid-js";
-import { createScript } from "solid-create-script";
-
-function App() {
-  const script = createScript("https://some-library.js");
+const CustomComponent = () => {
+  const script = createScript("https://example.com/library.js", { async: true });
 
   return (
-    <Switch fallback={<ScriptProvider>...</ScriptProvider>}>
+    <Switch>
       <Match when={script.loading}>Loading Script...</Match>
-      <Match when={script.error}>Failed to load script: {script.error.message}</Match>
+      <Match when={script.error}>Failed to load</Match>
+      <Match when={script()}>Script is ready!</Match>
     </Switch>
-  );
+  )
 }
+
 ```
 
-### Feedback
+> ⚠️ The `<script>` that is downloaded with `createScript` will be appended to `<head>`. This API currently does not support specifying a mount target for the `<script>` tag.
 
-Feel free to post any issues or suggestions to help improve this utility hook.
+## Notes
+
+- Scripts are automatically cached to prevent duplication.
+- The script is not removed on cleanup/unmount.
+- `createScript` uses `createResource` internally to manage async state.
+
+## Feedback
+
+Feel free to post issues or suggestions to help improve this library.

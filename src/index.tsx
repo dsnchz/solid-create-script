@@ -1,1 +1,1 @@
-export { default as createScript } from "./createScript";
+export { createScript } from "./createScript";

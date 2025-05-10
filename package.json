@@ -25,14 +25,20 @@
     "dist"
   ],
   "keywords": [
-    "create",
+    "solid",
+    "solidjs",
+    "solid-hook",
     "create-script",
-    "create-script-hook",
-    "hook",
+    "use-script",
+    "load-script",
+    "inject-script",
+    "dynamic-script",
+    "script-loader",
+    "script-injector",
+    "external-script",
     "script",
-    "Solid",
-    "SolidJS",
-    "use-script"
+    "hook",
+    "solid-create-script"
   ],
   "scripts": {
     "build": "tsup",
@@ -72,6 +78,7 @@
     "vitest": "^2.1.9"
   },
   "peerDependencies": {
+    "@dschz/load-script": ">=1.0.4",
     "solid-js": ">=1.8.0"
   }
 }
