@@ -2,65 +2,73 @@
   <img width="100%" src="https://assets.solidjs.com/banner?type=Ecosystem&background=tiles&project=solid-create-script" alt="solid-create-script">
 </p>
 
-[![NPM Version](https://img.shields.io/npm/v/solid-create-script.svg?style=for-the-badge)](https://www.npmjs.com/package/solid-create-script) [![Build Status](https://img.shields.io/github/actions/workflow/status/thedanchez/solid-create-script/ci.yaml?branch=main&logo=github&style=for-the-badge)](https://github.com/thedanchez/solid-create-script/actions/workflows/ci.yaml) [![bun](https://img.shields.io/badge/maintained%20with-bun-cc00ff.svg?style=for-the-badge&logo=bun)](https://bun.sh/)
+[![NPM Version](https://img.shields.io/npm/v/@dschz/solid-create-script.svg?style=for-the-badge)](https://www.npmjs.com/package/@dschz/solid-create-script)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/dsnchz/solid-create-script/ci.yaml?branch=main&logo=github&style=for-the-badge)](https://github.com/dsnchz/solid-create-script/actions/workflows/ci.yaml)
+[![bun](https://img.shields.io/badge/maintained%20with-bun-cc00ff.svg?style=for-the-badge&logo=bun)](https://bun.sh/)
 
 # @dschz/solid-create-script
 
-MIT Licensed
+> SolidJS hook to declaratively load external scripts, built on top of [`@dschz/load-script`](https://www.npmjs.com/package/@dschz/load-script).
 
-Utility function to dynamically load external scripts in both declarative and imperative styles within SolidJS.
+## ✅ Features
 
-## Installation
+- 📑 Fully typed with TypeScript
+- ✏️ Built on top of [`@dschz/load-script`](https://www.npmjs.com/package/@dschz/load-script) inheriting all the same features.
+- 📆 Declarative async tracking via Solid's `createResource`
+
+## 📦 Installation
 
 ```bash
 npm install solid-js @dschz/load-script @dschz/solid-create-script
+
 pnpm install solid-js @dschz/load-script @dschz/solid-create-script
+
 yarn install solid-js @dschz/load-script @dschz/solid-create-script
+
 bun install solid-js @dschz/load-script @dschz/solid-create-script
 ```
 
-> These are **peer dependencies**, so they must be installed manually:
+> These are **peer dependencies**, so you must install:
 >
 > - `solid-js`
 > - `@dschz/load-script`
 
-## Summary
+## 🔧 Usage
 
 ```ts
-import createScript from "@dschz/solid-create-script";
+import { createScript } from "@dschz/solid-create-script";
+
+const script = createScript({
+  src: "https://example.com/library.js",
+  options: { async: true },
+});
 ```
 
-## API Breakdown
+## 🧠 API
 
-### `createScript`
+### `createScript(src, options?, container?)`
 
-A lightweight wrapper around `loadScript` with `createResource` that returns a `Resource<HTMLScriptElement>`.
+Wraps `loadScript` in a `createResource()` to enable declarative async tracking inside SolidJS.
 
-The interface signature is as follows:
+#### Parameters:
 
-```ts
-const createScript = (src: string, options?: LoadScriptOptions, container?: HTMLElement | null)
-```
+- `src` _(string)_: the script source to download
+- `options` _(LoadScriptOptions)_: standard script attributes (e.g. `async`, `type`, `nonce`, etc.)
+- `container` _(HTMLElement)_: DOM node to append the script to (defaults to `document.head`)
 
-The three arguments:
+Returns a Solid `Resource<HTMLScriptElement>`.
 
-- `src`: the script source to download
-- `options`: the options to pass to `loadScript`
-- `container`: the HTMLElement to append the `<script />` to.
-
-It is useful for:
-
-- Conditionally rendering based on script load status
-- Tracking `loading`, `error`, and ready states
-
-### Usage
+## 🧪 Example
 
 ```ts
-import { Switch, Match } from "solid-js"
-import createScript from "@dschz/solid-create-script"
+import { Switch, Match } from "solid-js";
+import { createScript } from "@dschz/solid-create-script";
 
 const CustomComponent = () => {
-  const script = createScript("https://example.com/library.js", { async: true });
+  const script = createScript({
+    src: "https://example.com/widget.js",
+    options: { async: true }
+  });
 
   return (
     <Switch>
@@ -68,19 +76,16 @@ const CustomComponent = () => {
       <Match when={script.error}>Failed to load</Match>
       <Match when={script()}>Script is ready!</Match>
     </Switch>
-  )
-}
-
+  );
+};
 ```
 
-> ⚠️ The `<script>` that is downloaded with `createScript` will be appended to `<head>`. This API currently does not support specifying a mount target for the `<script>` tag.
+## 📝 Notes
 
-## Notes
+- Scripts are cached by `src` unless `innerHTML` or `textContent` is used
+- Scripts are not automatically removed on cleanup/unmount
+- Designed to be simple and safe to use inside SolidJS components
 
-- Scripts are automatically cached to prevent duplication.
-- The script is not removed on cleanup/unmount.
-- `createScript` uses `createResource` internally to manage async state.
+## 💬 Feedback & Contributions
 
-## Feedback
-
-Feel free to post issues or suggestions to help improve this library.
+Feel free to open [issues](https://github.com/dsnchz/solid-create-script/issues) or submit pull requests. PRs are welcome!
