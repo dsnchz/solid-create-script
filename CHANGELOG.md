@@ -1,5 +1,11 @@
 # solid-create-script
 
+## 1.2.0
+
+### Minor Changes
+
+- Implementation is now built on @dschz/load-script
+
 ## 1.1.0
 
 ### Minor Changes
