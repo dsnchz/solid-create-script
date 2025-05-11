@@ -8,9 +8,13 @@
   "types": "./dist/index.d.ts",
   "author": "Daniel Sanchez <dsanc89@icloud.com>",
   "license": "MIT",
-  "homepage": "https://github.com/thedanchez/solid-create-script#readme",
+  "homepage": "https://github.com/dsnchz/solid-create-script#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dsnchz/solid-create-script.git"
+  },
   "bugs": {
-    "url": "https://github.com/thedanchez/solid-create-script/issues"
+    "url": "https://github.com/dsnchz/solid-create-script/issues"
   },
   "publishConfig": {
     "access": "public"
