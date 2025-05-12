@@ -1,5 +1,11 @@
 # solid-create-script
 
+## 1.2.2
+
+### Patch Changes
+
+- Adds correction to README documentation
+
 ## 1.2.1
 
 ### Patch Changes
