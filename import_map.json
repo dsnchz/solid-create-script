@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@dschz/load-script": "jsr:@dschz/load-script@1"
+  }
+}
