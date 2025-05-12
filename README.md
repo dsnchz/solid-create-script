@@ -65,10 +65,7 @@ import { Switch, Match } from "solid-js";
 import { createScript } from "@dschz/solid-create-script";
 
 const CustomComponent = () => {
-  const script = createScript({
-    src: "https://example.com/widget.js",
-    options: { async: true }
-  });
+  const script = createScript("https://example.com/widget.js", { async: true });
 
   return (
     <Switch>
