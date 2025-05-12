@@ -2,5 +2,9 @@
   "name": "@dschz/solid-create-script",
   "version": "1.2.0",
   "license": "MIT",
-  "exports": "./src/index.tsx"
+  "exports": "./src/index.tsx",
+  "publish": {
+    "include": ["LICENSE", "README.md", "src/**/*.tsx"],
+    "exclude": ["**/*.test.tsx"]
+  }
 }
