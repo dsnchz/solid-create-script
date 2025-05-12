@@ -1,5 +1,11 @@
 # solid-create-script
 
+## 1.2.1
+
+### Patch Changes
+
+- updates jsr config to upload necessary files only
+
 ## 1.2.0
 
 ### Minor Changes
