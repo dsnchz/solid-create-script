@@ -1,5 +1,11 @@
 # solid-create-script
 
+## 1.2.4
+
+### Patch Changes
+
+- adds peer dependencies as dev dependencies to upload to jsr properly
+
 ## 1.2.3
 
 ### Patch Changes
