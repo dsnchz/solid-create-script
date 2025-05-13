@@ -1,5 +1,11 @@
 # solid-create-script
 
+## 1.2.3
+
+### Patch Changes
+
+- removes incorrect example from the README docs
+
 ## 1.2.2
 
 ### Patch Changes
