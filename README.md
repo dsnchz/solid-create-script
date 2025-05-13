@@ -33,17 +33,6 @@ bun install solid-js @dschz/load-script @dschz/solid-create-script
 > - `solid-js`
 > - `@dschz/load-script`
 
-## 🔧 Usage
-
-```ts
-import { createScript } from "@dschz/solid-create-script";
-
-const script = createScript({
-  src: "https://example.com/library.js",
-  options: { async: true },
-});
-```
-
 ## 🧠 API
 
 ### `createScript(src, options?, container?)`
