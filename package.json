@@ -66,6 +66,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.3",
+    "@dschz/load-script": "^1.0.5",
     "@solidjs/testing-library": "^0.8.10",
     "@testing-library/jest-dom": "^6.6.3",
     "@types/bun": "^1.2.12",
@@ -77,6 +78,7 @@
     "eslint-plugin-solid": "^0.14.5",
     "jsdom": "^25.0.1",
     "prettier": "^3.5.3",
+    "solid-js": "^1.9.6",
     "tsup": "^8.4.0",
     "tsup-preset-solid": "^2.2.0",
     "typescript": "^5.8.3",
@@ -86,6 +88,6 @@
   },
   "peerDependencies": {
     "@dschz/load-script": ">=1.0.4",
-    "solid-js": ">=1.8.0"
+    "solid-js": ">=1.6.0"
   }
 }
