@@ -1,5 +1,11 @@
 # solid-create-script
 
+## 1.2.5
+
+### Patch Changes
+
+- makes interface more ssr safe and updates readme
+
 ## 1.2.4
 
 ### Patch Changes
