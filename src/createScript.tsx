@@ -25,14 +25,14 @@ import { createResource, type Resource } from "solid-js";
  *
  * @param src - The script URL to load.
  * @param options - HTML script attributes (e.g. async, type, innerHTML).
- * @param container - The HTMLElement to append the `<script />` to.
- * @returns A SolidJS `Resource<HTMLScriptElement>` representing the loading state.
+ * @param container - The HTMLElement to append the `<script />` to (defaults to `document.head`).
+ * @returns `Resource<HTMLScriptElement>`
  */
 export const createScript = (
   src: string,
   options: LoadScriptOptions = {},
-  target: HTMLElement | null = document.head,
+  container?: HTMLElement | null,
 ): Resource<HTMLScriptElement> => {
-  const [script] = createResource(() => loadScript(src, options, target));
+  const [script] = createResource(() => loadScript(src, options, container));
   return script;
 };

@@ -4,11 +4,12 @@
 
 [![NPM Version](https://img.shields.io/npm/v/@dschz/solid-create-script.svg?style=for-the-badge)](https://www.npmjs.com/package/@dschz/solid-create-script)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/dsnchz/solid-create-script/ci.yaml?branch=main&logo=github&style=for-the-badge)](https://github.com/dsnchz/solid-create-script/actions/workflows/ci.yaml)
-[![bun](https://img.shields.io/badge/maintained%20with-bun-cc00ff.svg?style=for-the-badge&logo=bun)](https://bun.sh/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-supported-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![SSR Compatible](https://img.shields.io/badge/SSR-compatible-brightgreen?style=for-the-badge)](#)
 
 # @dschz/solid-create-script
 
-> SolidJS hook to declaratively load external scripts, built on top of [`@dschz/load-script`](https://www.npmjs.com/package/@dschz/load-script).
+> SolidJS hook to load external scripts -- built on top of [`@dschz/load-script`](https://www.npmjs.com/package/@dschz/load-script).
 
 ## ✅ Features
 
@@ -20,11 +21,8 @@
 
 ```bash
 npm install solid-js @dschz/load-script @dschz/solid-create-script
-
 pnpm install solid-js @dschz/load-script @dschz/solid-create-script
-
 yarn install solid-js @dschz/load-script @dschz/solid-create-script
-
 bun install solid-js @dschz/load-script @dschz/solid-create-script
 ```
 
@@ -37,15 +35,15 @@ bun install solid-js @dschz/load-script @dschz/solid-create-script
 
 ### `createScript(src, options?, container?)`
 
-Wraps `loadScript` in a `createResource()` to enable declarative async tracking inside SolidJS.
+Loads an external script dynamically and returns a `Resource<HTMLScriptElement>`.
 
 #### Parameters:
 
-- `src` _(string)_: the script source to download
-- `options` _(LoadScriptOptions)_: standard script attributes (e.g. `async`, `type`, `nonce`, etc.)
-- `container` _(HTMLElement)_: DOM node to append the script to (defaults to `document.head`)
-
-Returns a Solid `Resource<HTMLScriptElement>`.
+| Name        | Type                | Description                                                       |
+| ----------- | ------------------- | ----------------------------------------------------------------- |
+| `src`       | `string`            | Script URL (required)                                             |
+| `options`   | `LoadScriptOptions` | `loadScript` options (e.g. `async`, `type`)                       |
+| `container` | `HTMLElement`       | HTML element to append `<script />` to (default: `document.head`) |
 
 ## 🧪 Example
 
@@ -70,7 +68,7 @@ const CustomComponent = () => {
 
 - Scripts are cached by `src` unless `innerHTML` or `textContent` is used
 - Scripts are not automatically removed on cleanup/unmount
-- Designed to be simple and safe to use inside SolidJS components
+- Designed to be simple and safe to use inside SolidJS components (in SSR and non-SSR environments)
 
 ## 💬 Feedback & Contributions
 
