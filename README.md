@@ -2,12 +2,12 @@
   <img width="100%" src="https://assets.solidjs.com/banner?type=Ecosystem&background=tiles&project=solid-create-script" alt="solid-create-script">
 </p>
 
-[![NPM Version](https://img.shields.io/npm/v/@dschz/solid-create-script.svg?style=for-the-badge)](https://www.npmjs.com/package/@dschz/solid-create-script)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/dsnchz/solid-create-script/ci.yaml?branch=main&logo=github&style=for-the-badge)](https://github.com/dsnchz/solid-create-script/actions/workflows/ci.yaml)
-[![TypeScript](https://img.shields.io/badge/TypeScript-supported-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![SSR Compatible](https://img.shields.io/badge/SSR-compatible-brightgreen?style=for-the-badge)](#)
-
 # @dschz/solid-create-script
+
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![npm](https://img.shields.io/npm/v/@dschz/solid-create-script)](https://www.npmjs.com/package/@dschz/solid-create-script)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@dschz/solid-create-script)](https://bundlephobia.com/package/@dschz/solid-create-script)
+[![CI](https://github.com/dsnchz/solid-create-script/actions/workflows/ci.yaml/badge.svg)](https://github.com/dsnchz/solid-create-script/actions/workflows/ci.yaml)
 
 > SolidJS hook to load external scripts -- built on top of [`@dschz/load-script`](https://www.npmjs.com/package/@dschz/load-script).
 
