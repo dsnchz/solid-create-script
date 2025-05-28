@@ -1,5 +1,11 @@
 # solid-create-script
 
+## 1.2.6
+
+### Patch Changes
+
+- updates readme badges
+
 ## 1.2.5
 
 ### Patch Changes
