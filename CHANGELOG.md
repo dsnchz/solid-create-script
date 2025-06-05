@@ -1,5 +1,11 @@
 # solid-create-script
 
+## 1.2.7
+
+### Patch Changes
+
+- Adds JSR score badge to readme
+
 ## 1.2.6
 
 ### Patch Changes
