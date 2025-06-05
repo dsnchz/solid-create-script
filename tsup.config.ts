@@ -3,7 +3,6 @@ import * as preset from "tsup-preset-solid";
 
 import pkg from "./package.json";
 
-
 const generateSolidPresetOptions = (watching: boolean): preset.PresetOptions => ({
   entries: [
     {
