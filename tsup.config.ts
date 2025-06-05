@@ -1,6 +1,9 @@
 import { defineConfig } from "tsup";
 import * as preset from "tsup-preset-solid";
 
+import pkg from "./package.json";
+
+
 const generateSolidPresetOptions = (watching: boolean): preset.PresetOptions => ({
   entries: [
     {
@@ -28,7 +31,7 @@ export default defineConfig((config) => {
 
   const tsupOptions = preset
     .generateTsupOptions(parsedOptions)
-    .map((tsupOption) => ({ name: "solid-create-script", ...tsupOption }));
+    .map((tsupOption) => ({ name: pkg.name, ...tsupOption }));
 
   return tsupOptions;
 });

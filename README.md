@@ -7,6 +7,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![npm](https://img.shields.io/npm/v/@dschz/solid-create-script)](https://www.npmjs.com/package/@dschz/solid-create-script)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/@dschz/solid-create-script)](https://bundlephobia.com/package/@dschz/solid-create-script)
+[![JSR](https://jsr.io/badges/@dschz/solid-create-script/score)](https://jsr.io/@dschz/solid-create-script)
 [![CI](https://github.com/dsnchz/solid-create-script/actions/workflows/ci.yaml/badge.svg)](https://github.com/dsnchz/solid-create-script/actions/workflows/ci.yaml)
 
 > SolidJS hook to load external scripts -- built on top of [`@dschz/load-script`](https://www.npmjs.com/package/@dschz/load-script).
