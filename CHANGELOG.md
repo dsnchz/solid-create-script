@@ -1,5 +1,11 @@
 # solid-create-script
 
+## 1.2.8
+
+### Patch Changes
+
+- Fixes formatting issue
+
 ## 1.2.7
 
 ### Patch Changes
