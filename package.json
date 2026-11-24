@@ -1,6 +1,6 @@
 {
   "name": "@dschz/solid-create-script",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "Solid utility hook to dynamically load an external script.",
   "keywords": [
     "create-script",
