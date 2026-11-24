@@ -10,26 +10,63 @@
 [![JSR](https://jsr.io/badges/@dschz/solid-create-script/score)](https://jsr.io/@dschz/solid-create-script)
 [![CI](https://github.com/dsnchz/solid-create-script/actions/workflows/ci.yaml/badge.svg)](https://github.com/dsnchz/solid-create-script/actions/workflows/ci.yaml)
 
-> SolidJS hook to load external scripts -- built on top of [`@dschz/load-script`](https://www.npmjs.com/package/@dschz/load-script).
+> SolidJS 1.x hook to load external scripts -- built on top of [`@dschz/load-script`](https://www.npmjs.com/package/@dschz/load-script).
 
-## ✅ Features
+## ⚠️ Using SolidJS 2.0? You don't need this package
+
+This package wraps `loadScript` in `createResource`, which SolidJS 2.0 removed. In 2.0, async values are part of the reactive graph: a computation can return a promise, a `<Loading>` boundary shows its fallback until the promise resolves, and an `<Errored>` boundary catches a rejection. So use [`@dschz/load-script`](https://www.npmjs.com/package/@dschz/load-script) directly:
+
+```bash
+npm install @dschz/load-script
+```
+
+```tsx
+import { loadScript } from "@dschz/load-script";
+import { createMemo, Errored, Loading, Show } from "solid-js";
+
+const CustomComponent = () => {
+  // Resolves to the <script> element once it has loaded (cached by `src`).
+  const script = createMemo(() => loadScript("https://example.com/widget.js", { async: true }));
+
+  return (
+    <Errored fallback={<p>Failed to load</p>}>
+      <Loading fallback={<p>Loading Script...</p>}>
+        <Show when={script()}>Script is ready!</Show>
+      </Loading>
+    </Errored>
+  );
+};
+```
+
+| SolidJS 1.x (`createScript`) | SolidJS 2.0 (`loadScript` + primitives)      |
+| ---------------------------- | -------------------------------------------- |
+| `createScript(src, options)` | `createMemo(() => loadScript(src, options))` |
+| `script.loading`             | `<Loading fallback={…}>` around the reads    |
+| `script.error`               | `<Errored fallback={…}>` around the reads    |
+| `script()` once loaded       | `script()` inside the boundaries             |
+
+`loadScript` rejects on the server, so in a server-rendered app load the script on the client only (for example, a component rendered client-side).
+
+This package stays available for SolidJS 1.x (1.6 or newer) and is not updated for 2.0.
+
+## ✅ Features (SolidJS 1.x)
 
 - 📑 Fully typed with TypeScript
 - ✏️ Built on top of [`@dschz/load-script`](https://www.npmjs.com/package/@dschz/load-script) inheriting all the same features.
 - 📆 Declarative async tracking via Solid's `createResource`
 
-## 📦 Installation
+## 📦 Installation (SolidJS 1.x)
 
 ```bash
-npm install solid-js @dschz/load-script @dschz/solid-create-script
-pnpm install solid-js @dschz/load-script @dschz/solid-create-script
-yarn install solid-js @dschz/load-script @dschz/solid-create-script
-bun install solid-js @dschz/load-script @dschz/solid-create-script
+npm install solid-js@1 @dschz/load-script @dschz/solid-create-script
+pnpm add solid-js@1 @dschz/load-script @dschz/solid-create-script
+yarn add solid-js@1 @dschz/load-script @dschz/solid-create-script
+bun add solid-js@1 @dschz/load-script @dschz/solid-create-script
 ```
 
 > These are **peer dependencies**, so you must install:
 >
-> - `solid-js`
+> - `solid-js` 1.6 or newer, below 2.0
 > - `@dschz/load-script`
 
 ## 🧠 API
